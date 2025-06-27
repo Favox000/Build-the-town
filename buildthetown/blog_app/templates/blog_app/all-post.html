@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static "blog_app/all-post.css" %}">
+{% endblock css_file %}
+
+{% block title %}Blog{% endblock title %}
+
+{% block content %}
+
+    <h1>Blog</h1>
+    
+    <div class="articles-grid">
+        {% for article in articles %}
+            <a href="{% url 'blog_detail' article.slug %}" class="article">
+                <h3>{{ article.title }}</h3>
+                <img src="{{ article.image.url }}" alt="">
+                <p>{{ article.trailer }}</p>
+            </a>
+        {% endfor %}
+    </div>
+
+    <a class="button" href="{% url "home_page" %}">Zpět</a>
+    <br>
+    <br>
+
+{% endblock content %}

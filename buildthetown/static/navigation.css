@@ -1,0 +1,239 @@
+/* static/css/navigation.css */
+
+header {
+    background: #b2ebf2;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+    margin-bottom: 24px;
+    border: #01423a 3px solid;
+    width: 100%; /* Přidáno: zajistí, že hlavička zabere celou dostupnou šířku */
+    max-width: 100%; /* Volitelné: můžete přidat pro jistotu */
+    box-sizing: border-box; /* Zajistí, že padding a border jsou zahrnuty do width */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center; /* zarovná všechny prvky doprostřed */
+    align-items: center;
+    gap: 18px;
+    list-style: none;
+    padding: 16px 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a,
+nav ul li form button {
+    color: #00695c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.08em;
+    padding: 6px 16px;
+    border-radius: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: inline-block;
+    font-family: inherit;
+    line-height: 1.5;
+    vertical-align: middle;
+    height: auto;
+    margin: 0;
+    appearance: none;
+    outline: none;
+    box-shadow: none;
+}
+
+nav ul li a:hover,
+nav ul li form button:hover {
+    background: #4dd0e1;
+    color: #fff;
+}
+
+nav ul li form {
+    display: contents; /* zachová flex v li, ale form nevytváří vlastní box */
+}
+
+/* Styl pro pozdrav uživateli v navigaci */
+nav ul li.welcome-message {
+    border: 2px solid #01423a;
+    color: #00796b;
+    font-weight: 700;
+    padding: 12px 22px;
+    margin: 12px 0;
+    user-select: none;
+    white-space: nowrap;
+    transition: color 0.3s, background 0.3s, box-shadow 0.3s;
+    background: linear-gradient(90deg, #e0f7fa 60%, #b2ebf2 100%);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    letter-spacing: 0.5px;
+    font-size: 1.13em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav ul li.welcome-message::before {
+    font-size: 1.2em;
+    margin-right: 7px;
+}
+
+nav ul li.welcome-message:hover {
+    color: #004d40;
+    background: #b2dfdb;
+    box-shadow: 0 4px 16px rgba(44, 62, 80, 0.13);
+    cursor: default;
+}
+
+/* Dropdown menu pro uživatele */
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.welcome-message {
+    cursor: pointer;
+    padding: 8px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 8px;
+}
+
+.dropdown li a,
+.dropdown li button {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: black;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Hover efekt pro dropdown položky */
+.dropdown li a:hover,
+.dropdown li button:hover {
+    background-color: #07b5b2;
+    color: #fff;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+.dropdown li form {
+    margin: 0;
+    padding: 0;
+    display: block; /* aby to zabralo celý řádek */
+}
+
+.dropdown li form button {
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: black;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    display: block;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown li form button:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.user-menu .dropdown li:last-child {
+    color: #888;           /* šedá barva */
+    font-style: italic;     /* kurzíva */
+    cursor: default;        /* kurzor se nezmění na ruku */
+    user-select: none;      /* text nelze označit */
+    padding: 8px 12px;
+    pointer-events: none;   /* zakáže klikání */
+}
+
+/* Specifické styly pro položku obchod s dropdown menu */
+.shop_menu {
+    position: relative;
+    cursor: pointer;
+    padding: 6px 16px; /* Zarovnání s ostatními odkazy */
+    font-weight: 600;
+    color: #00695c;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+    user-select: none;
+}
+
+.shop_menu:hover {
+    background: #4dd0e1;
+    color: #fff;
+}
+
+.shop_menu .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 140px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 10;
+    list-style: none;
+    padding: 0;
+    border-radius: 8px;
+}
+
+.shop_menu:hover .dropdown {
+    display: block;
+}
+
+.shop_menu .dropdown li {
+    border-bottom: 1px solid #ddd;
+}
+
+.shop_menu .dropdown li:last-child {
+    border-bottom: none;
+}
+
+.shop_menu .dropdown li a {
+    display: block;
+    padding: 10px 16px;
+    color: #00695c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.shop_menu .dropdown li a:hover {
+    background-color: #07b5b2;
+    color: #fff;
+}

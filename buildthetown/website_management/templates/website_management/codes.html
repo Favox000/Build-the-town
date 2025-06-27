@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Správa webu - Build the Town - Kódy
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'website_management/competition.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <h1>Správa webu - Kódy</h1>
+
+    <div class="container">
+        <table>
+        <thead>
+            <tr>
+                <th>Název kódu</th>
+                <th>Použito uživateli</th>
+                <th>Přidá body</th>
+                <th>Přidá peníze</th>
+                <th>Přidá tikety</th>
+                <th>Přidá výdělek</th>
+                <th>Zpráva</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for code in codes %}
+            <tr>
+                <td>{{ code.name }}</td>
+                <td>
+                    {% if code.used_by.all %}
+                        {{ code.used_by.all|join:", " }}
+                    {% else %}
+                        &ndash;
+                    {% endif %}
+                </td>
+                <td>{{ code.add_points }}</td>
+                <td>{{ code.add_money }}</td>
+                <td>{{ code.add_golden_tickets }}</td>
+                <td>{{ code.add_earn }}</td>
+                <td>{{ code.message }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">Žádné kódy nejsou k dispozici.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock content %}

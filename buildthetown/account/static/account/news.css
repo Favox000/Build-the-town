@@ -1,0 +1,114 @@
+/* static/css/account/news.css */
+/* Wrapper for the news page */
+.news-page {
+  margin: 24px auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+.subtitle {
+  font-size: 1.3em;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Card for each quiz/form block */
+.quiz-card {
+  background: #e0f7fa;
+  border: 2px solid #b2ebf2;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(0, 77, 64, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.quiz-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 77, 64, 0.12);
+}
+
+/* Form grouping */
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #004d40;
+}
+
+/* Inputs and textareas */
+.quiz-form input[type="text"],
+.quiz-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b2dfdb;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+  background: #fff;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.quiz-form input[type="text"]:focus,
+.quiz-form textarea:focus {
+  border-color: #4dd0e1;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 105, 92, 0.3);
+}
+
+/* Quiz question text */
+.quiz-question {
+  font-size: 1.1em;
+  color: #00695c;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Room title styling */
+.room-title {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Choices for radio buttons */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.choices label {
+  font-size: 1em;
+  color: #004d40;
+  cursor: pointer;
+}
+.choices input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #00695c;
+}
+
+/* Button override for quiz-form */
+.quiz-form button {
+  margin-top: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .news-page {
+    padding: 0 16px;
+  }
+  .quiz-card {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .page-title {
+    font-size: 2em;
+  }
+  .subtitle {
+    font-size: 1.1em;
+  }
+}

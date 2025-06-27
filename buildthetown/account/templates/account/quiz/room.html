@@ -1,0 +1,13 @@
+<h3 class="room-title">Místnost {{ any_quiz.room_number }}</h3>
+                        <p class="quiz-question">{{ any_quiz.question }}</p>
+                        <form method="post" class="quiz-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="room_answer">Tvoje odpověď:</label>
+                                <input type="text" id="room_answer" name="room_answer" required>
+                            </div>
+                            <button type="submit">Odeslat</button>
+                        </form>
+                    {% else %}
+                        <p class="info-message">Všechny místnosti pro dnešní den jsou hotové!</p>
+                    {% endif %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Úvodní strana{% endblock title %}
+
+{% block content %}
+    <h1>Úvodní strana</h1>
+    <p>Vítejte na úvodní straně!</p>
+    <p>Pro pokračování klikněte na <a href="{% url 'chat' %}">chat</a>.</p>
+{% endblock content %}

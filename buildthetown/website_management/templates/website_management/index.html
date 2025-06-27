@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Správa webu - Build the Town
+{% endblock title %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'website_management/index.css' %}">
+{% endblock css_file %}
+
+{% block content %}
+    <h1>Správa webu</h1>
+
+    <ul>
+        <li><a href="">Správa Obchodu</a></li>
+        <li><a href="">Správa Chatu</a></li>
+        <li><a href="">Správa Blogu</a></li>
+        <li><a href="{% url 'website_management_competition' %}">Správa Soutěží</a></li>
+        <li><a href="{% url 'website_management_users' %}">Správa uživatelů</a></li>
+        <li><a href="{% url 'website_management_codes' %}">Správa Kódů</a></li>
+        <li><a href="{% url 'admin:index' %}">Správa Django</a></li>
+    </ul>
+
+{% endblock content %}

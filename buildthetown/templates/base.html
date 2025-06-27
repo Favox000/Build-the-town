@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'global.css' %}">
+    <link rel="stylesheet" href="{% static 'navigation.css' %}">
+    {% block css_file %}{% endblock css_file %}
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+
+                    <li class="user-menu">
+                        <span class="welcome-message">Vítej {{ user.username }}</span>
+                        <ul class="dropdown">
+                            <li><a href="{% url 'profile_page' slug=user.username %}">Profil</a></li>
+                            <li><a href="{% url 'codes' %}">Kódy</a></li>
+                            {% if user.is_superuser %}
+                                <a href="{% url 'website_management_index' %}">Správa</a>
+                            {% endif %}
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit">Odhlásit se</button>
+                            </form>
+                        </ul>
+                    </li>
+                    
+
+                    <li class="shop_menu">
+                        <span>Obchod</span>
+                        <ul class="dropdown">
+                            <li><a href="{% url 'shop' %}">Budovy</a></li>
+                            <li><a href="{% url 'upgrade' %}">Vylepšení</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'news' %}">Aktuality</a></li>
+                    <li><a href="{% url 'chat' %}">Chat</a></li>
+                
+                {% else %}
+                    <li><a href="{% url 'login' %}">Přihlášení</a></li>
+                    <li><a href="{% url 'register' %}">Registrace</a></li>
+
+                {% endif %}
+
+                    <li><a href="{% url 'all_post' %}">Blog</a></li>
+                    <li><a href="{% url 'ranking' %}">Žebříček</a></li>
+                    <li><a href="{% url 'rules' %}">Pravidla</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>© 2025 <a href="{% url 'profile_page' slug='Favox000' %}">Favox000</a> Všechna práva vyhrazena | <a href="{% url 'rules' %}">Pravidla </a> | <a href="">O webu</a></p>
+    </footer>
+</body>
+</html>

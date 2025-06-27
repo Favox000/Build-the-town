@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'account/codes.css' %}">
+{% endblock css_file %}
+
+{% block title %}Žebříček{% endblock title %}
+
+{% block content %}
+    <h1>Kódy</h1>
+
+    {% if messages %}
+        <div class="messages-container">
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="" name="code_name" placeholder="Název kódu" required>
+        <button>Odeslat</button>
+    </form>
+{% endblock content %}

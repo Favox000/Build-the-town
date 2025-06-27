@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'account/ranking.css' %}">
+{% endblock css_file %}
+
+{% block title %}Žebříček{% endblock title %}
+
+{% block content %}
+<div class="container ranking-container">
+    <h1>Žebříček</h1>
+
+    <ol class="ranking-list">
+        {% for user in users %}
+            <li class="ranking-item">
+                <a href="{% url 'profile_page' slug=user.user.username %}"> 
+                    <span class="rank-number">{{ forloop.counter }}.</span>&nbsp;
+                    <span class="username"> {{ user.user.username }}</span>
+                    <span class="points">{{ user.points }} bodů</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ol>
+
+</div>
+{% endblock content %}

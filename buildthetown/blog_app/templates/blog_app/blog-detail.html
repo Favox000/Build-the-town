@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static "blog_app/blog-detail.css" %}">
+{% endblock css_file %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block content %}
+
+    <div class="detail-container">
+        <div class="detail-title">{{ post.title }}</div>
+        <div class="detail-meta">
+            <span><strong>Čas čtení:</strong> {{ post.reading_time }} min</span> |
+            <span><strong>Vydáno:</strong> {{ post.issue_date|date:"d.m.Y H:i" }}</span>
+        </div>
+        <img src="{{ post.image.url }}" alt="" class="detail-image">
+        <div class="detail-trailer">{{ post.trailer }}</div>
+        <div class="detail-text">{{ post.text }}</div>
+        <div class="detail-author">Od: {{ post.author }}</div>
+    
+        <a href="{% url "all_post" %}">Zpět</a>
+    
+    </div>
+
+    <br>
+    <br>
+
+{% endblock content %}
+
+{% comment %} 
+title 
+trailer 
+text 
+author 
+    visible 
+    issue_date 
+reading_time  
+{% endcomment %}

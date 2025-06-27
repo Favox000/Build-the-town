@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Správa webu - Build the Town - Soutěže
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'website_management/competition.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <h1>Správa webu - Soutěže</h1>
+
+    <div class="container">
+        <h2>Dny</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Číslo dne</th>
+                    <th>Cena tiketu</th>
+                    <th>Typ kvízu</th>
+                    <th>Tajný text</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for day in days %}
+                <tr>
+                    <td>{{ day.day_number }}</td>
+                    <td>{{ day.golden_ticket_cost }}</td>
+                    <td>{{ day.type_of_quiz }}</td>
+                    <td>{{ day.secret_text }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">Žádné dny nejsou k dispozici.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Kvízy</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Den</th>
+                    <th>Otázka</th>
+                    <th>Odpověď 1</th>
+                    <th>Odpověď 2</th>
+                    <th>Odpověď 3</th>
+                    <th>Správná odpověď</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for quiz in quizs %}
+                <tr>
+                    <td>{{ quiz.day_number }}</td>
+                    <td>{{ quiz.text_question }}</td>
+                    <td>{{ quiz.choise_1 }}</td>
+                    <td>{{ quiz.choise_2 }}</td>
+                    <td>{{ quiz.choise_3 }}</td>
+                    <td>{{ quiz.answer_quiz }}</td>
+                    <td>{{ quiz.points }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7">Žádné kvízy nejsou k dispozici.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Práce s textem</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Den</th>
+                    <th>Otázka</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for w in work_with_texts %}
+                <tr>
+                    <td>{{ w.day_number }}</td>
+                    <td>{{ w.text_question }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">Žádné úkoly nejsou k dispozici.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Malé odpovědi</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Den</th>
+                    <th>Otázka</th>
+                    <th>Správná odpověď</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in small_answers %}
+                <tr>
+                    <td>{{ s.day_number }}</td>
+                    <td>{{ s.text_question }}</td>
+                    <td>{{ s.answer_quiz }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">Žádné malé odpovědi nejsou k dispozici.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Příběhy</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Den</th>
+                    <th>Příběh</th>
+                    <th>Správná odpověď</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for story in stories %}
+                <tr>
+                    <td>{{ story.day_number }}</td>
+                    <td>{{ story.text_question }}</td>
+                    <td>{{ story.answer_quiz }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">Žádné příběhy nejsou k dispozici.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Místnosti</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Den</th>
+                    <th>Místnost</th>
+                    <th>Otázka</th>
+                    <th>Správná odpověď</th>
+                    <th>Body</th>
+                    <th>Peníze</th>
+                    <th>Tikety</th>
+                    <th>Výdělek</th>
+                    <th>Zpráva</th>
+                    <th>Pokusy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for room in rooms %}
+                <tr>
+                    <td>{{ room.day_number }}</td>
+                    <td>{{ room.room_number }}</td>
+                    <td>{{ room.question }}</td>
+                    <td>{{ room.right_answer }}</td>
+                    <td>{{ room.add_points }}</td>
+                    <td>{{ room.add_money }}</td>
+                    <td>{{ room.add_golden_tickets }}</td>
+                    <td>{{ room.add_earn }}</td>
+                    <td>{{ room.message }}</td>
+                    <td>{{ room.attempts }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="11">Žádné místnosti nejsou k dispozici.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

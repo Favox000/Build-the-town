@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Správa webu - Build the Town - Uživatelé
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'website_management/competition.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <h1>Správa webu - Uživatelé</h1>
+
+    <div class="container">
+       <table>
+        <thead>
+            <tr>
+                <th>Uživatelské jméno</th>
+                <th>Email</th>
+                <th>Body</th>
+                <th>Peníze</th>
+                <th>Výdělek</th>
+                <th>Tikety</th>
+                <th>Pokusy</th>
+                <th>Poslední aktivita</th>
+                <th>Aktuální místnost</th>
+                <th>Kvíz?</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td><a href="{% url 'profile_page' slug=user.username %}">{{ user.username }}</a></td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.profile.points }}</td>
+                    <td>{{ user.profile.money }}</td>
+                    <td>{{ user.profile.earn }}</td>
+                    <td>{{ user.profile.golden_tickets }}</td>
+                    <td>{{ user.profile.attempts }}</td>
+                    <td>{{ user.profile.last_activity_date }}</td>
+                    <td>{{ user.profile.room_index }}</td>
+                    <td>{% if user.profile.has_quiz %}Ano{% else %}Ne{% endif %}</td>
+                </tr>
+
+            {% empty %}
+                <tr>
+                    <td colspan="10">Žádní uživatelé nejsou k dispozici.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock content %}

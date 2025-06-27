@@ -1,0 +1,10 @@
+<h2 class="form-heading">Práce s textem</h2>
+                    <form method="post" class="quiz-form">
+                        {% csrf_token %}
+                        <p class="quiz-question">{{ any_quiz.text_question }}</p>
+                        <div class="form-group">
+                            <label for="text_answer">Napiš svou odpověď:</label>
+                            <textarea id="text_answer" name="text_answer" rows="4" required></textarea>
+                        </div>
+                        <button type="submit">Odeslat</button>
+                    </form>

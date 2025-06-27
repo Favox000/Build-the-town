@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load static %}
+
+{% block title %}Obchod{% endblock title %}
+
+<!-- {% block css_file %}
+    <link rel="stylesheet" href="{% static 'css/shop.css' %}"> 
+{% endblock css_file %} -->
+
+{% block content %}
+    <div class="container">
+        <h1>Obchod</h1>
+        <p>Co si chcete koupit?</p>
+        <p class="money-info">Peníze: <span>{{ profile.money|intcomma }}</span> | Vyděláváš: <span>{{ profile.earn|intcomma }}</span> | Zlaté tikety <span>{{ profile.golden_tickets|intcomma }}</span></p>
+
+        {% if messages %}
+            <div class="messages-container">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Název</th>
+                    <th>Cena</th>
+                    <th>{% if page_type == "shop" %}Vydělává {% else %}Popis{% endif %}</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td data-label="Název">{{ item.name }}</td>
+                        <td data-label="Cena">{{ item.cost|intcomma }}</td>
+                        <td data-label="{% if page_type == "shop" %}Vydělává {% else %}Popis{% endif %}">{% if page_type == "shop" %}{{ item.profit|intcomma }}{% else %}{{ item.description }}{% endif %}</td>
+                        <td data-label="Akce">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="item_id" value="{{ item.id }}">
+                                <input type="hidden" name="item_type" value="{{ item.type }}">
+                                <button type="submit">Koupit</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+{% endblock content %}

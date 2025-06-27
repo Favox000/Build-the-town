@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'account/profile.css' %}">
+{% endblock css_file %}
+
+{% block title %}
+    Profil uživatele {{ name }}
+{% endblock title %}
+
+{% block content %}
+<div class="profile-container">
+    <h1 class="profile-name">Uživatel: {{ name }}</h1>
+    <div class="profile-info">
+        <p><strong>Peníze:</strong> {{ profile.money }}</p> 
+        <p><strong>Body:</strong> {{ profile.points }}</p>
+        <p><strong>Zlaté tickety:</strong> {{ profile.golden_tickets }}</p>
+        <p><strong>Vydělává:</strong> {{ profile.earn }}</p>
+    </div>
+
+    {% if user.username == name %}
+        <h3>Napiš něco o sobě:</h3>
+        <form class="profile-form" method="post">
+            {% csrf_token %}
+            <textarea name="message" id="profile-message" rows="5" placeholder="Napiš o sobě něco zajímavého..." required>{{ content }}</textarea>
+            <button type="submit">Uložit</button>
+        </form>
+    {% else %}
+        <div class="profile-content">
+            <p>{{ content }}</p>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const textarea = document.getElementById('profile-message');
+
+    const autoResize = () => {
+        textarea.style.height = 'auto';
+
+        // Korekce pro padding a border (box-sizing = border-box)
+        const computed = window.getComputedStyle(textarea);
+        const paddingTop = parseFloat(computed.paddingTop);
+        const paddingBottom = parseFloat(computed.paddingBottom);
+        const borderTop = parseFloat(computed.borderTopWidth);
+        const borderBottom = parseFloat(computed.borderBottomWidth);
+        const extra = paddingTop + paddingBottom + borderTop + borderBottom;
+
+        textarea.style.height = (textarea.scrollHeight + borderTop + borderBottom) + 'px';
+    };
+
+    textarea.addEventListener('input', autoResize);
+    autoResize();
+});
+</script>
+
+{% endblock content %}

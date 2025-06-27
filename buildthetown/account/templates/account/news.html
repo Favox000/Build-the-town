@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Aktuality{% endblock title %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'account/news.css' %}">
+{% endblock css_file %}
+
+{% block content %}
+    <div class="container news-page">
+        <h1 class="page-title">Aktuality – {{ name_quiz }}</h1>
+        <h2 class="subtitle">Den – {{ day_passed }}</h2>
+
+        {% if messages %}
+            <div class="messages-container">
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <div class="quiz-card">
+                {% block quiz %}{% endblock quiz %}
+
+                {% else %}
+                    <p class="error-message">Neznámý typ kvízu.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
+{% comment %}serche, room, example, work_with_text, story{% endcomment %}

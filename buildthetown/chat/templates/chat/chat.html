@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Chat{% endblock title %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'chat/chat.css' %}">
+{% endblock css_file %}
+
+{% block content %}
+    <div class="container"> 
+        <div class="chat-page">
+            <h1>Chat</h1>
+
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="content" placeholder="Zadejte zprávu" required>
+                <button type="submit">Odeslat</button>
+            </form>
+            
+            <ul class="chat-messages">
+                {% for message in messages %}
+                    <li>
+                        <span class="message-timestamp">{{ message.created_at|date:"H:i" }}</span> | 
+                        <span class="message-sender">{{ message.sendet_by }}:</span> 
+                        <span class="message-content">{{ message.content }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

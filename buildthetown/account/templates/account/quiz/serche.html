@@ -1,0 +1,9 @@
+<form method="POST" class="quiz-form">
+                        {% csrf_token %}
+                        <p class="quiz-question">{{ any_quiz.text_question }}</p>
+                        <div class="form-group">
+                            <label for="serche_answer">Zadej odpověď:</label>
+                            <input type="text" id="serche_answer" name="serche_answer" required>
+                        </div>
+                        <button type="submit">Odeslat</button>
+                    </form>

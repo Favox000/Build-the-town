@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %}
+    <link rel="stylesheet" href="{% static 'rules.css' %}">
+{% endblock css_file %}
+
+{% block title %}Pravidla{% endblock title %}
+
+{% block content %}
+    <div class="rules-page">
+        <h1>Pravidla</h1>
+
+        <h2>Pravidla a Vysvětlení Hry:</h2>
+        <ul>
+            <li><b>Hlášení chyb</b>: Pokud narazíte na chybu, prosím, nahlašte ji organizátorovi. Vaše zpětná vazba pomáhá zlepšit hru.</li>
+            <li><b>Nepodvádějte</b>: Hrajte férově a užijte si hru tak, jak byla zamýšlena. Podvádění kazí zábavu pro všechny.</li>
+            <li><b>Užijte si to</b>: Hra je vytvořena pro vaši zábavu. Relaxujte, bavte se a užijte si každý okamžik.</li>
+            <li><b>Organizátor má poslední slovo</b>: V případě nejasností nebo sporů má organizátor právo rozhodnout.</li>
+        </ul>
+
+        <h2>Jak hra funguje:</h2>
+        <ul>
+            <li><b>Denní odměny</b>: Každý den dostanete peníze, které si vyděláváte. Soutěž trvá 30 dní.</li>
+            <li><b>Vylepšení</b>: K dispozici jsou různé vylepšení od nejlevnějších po nejdražší. Například "Sluneční elektrárna okolo slunce" je jedním z nejlepších vylepšení.</li>
+            <li><b>Zlaté tikety</b>: Zlaté tikety jsou speciální měna, kterou můžete použít na upgrady. Jejich cena se může měnit, takže nakupujte s rozmyslem.</li>
+            <li>
+                <b>Aktuality:</b> Každý den najdete otázku nebo úkol, který vás zabaví.  
+                <h4>Druhy úkolů zahrnují</h4>
+                <ul>
+                    <li>Pátračka</li>
+                    <li>Kvíz</li>
+                    <li>Kód</li>
+                    <li>Příklad</li>
+                    <li>Práce s textem</li>
+                    <li>Příběh</li>
+                    <li>Místnost</li>
+                    <li><b>Kódy</b>: Občas můžete najít speciální kódy, například "CITRON". Tyto kódy vám mohou přinést body, výhody nebo jiné odměny. Většina kódů je použitelná pouze jednou.</li>
+                    <li><b>Žebříček a Účet</b>: Sledujte své skóre a porovnávejte se s ostatními hráči.</li>
+                    <li><b>Blok a Chat</b>: V bloku najdete velká oznámení a další zajímavosti. Chat je zatím nefunkční, protože ho obsadili lvi. 😄</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Tipy:</h3>
+        <ul>
+            <li>Kontrolujte aplikaci každý den, mohou se objevit nápovědy, vtipy nebo neoficiální úkoly za body.</li>
+            <li>Hrajte strategicky a plánujte své nákupy.</li>
+            <li>Bavte se a užijte si atmosféru hry!</li>
+        </ul>
+    </div>
+{% endblock content %}

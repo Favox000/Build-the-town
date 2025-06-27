@@ -1,0 +1,11 @@
+<h2 class="form-heading">Kvíz</h2>
+                    <form method="post" class="quiz-form">
+                        {% csrf_token %}
+                        <p class="quiz-question">{{ any_quiz.text_question }}</p>
+                        <div class="choices">
+                            <label><input type="radio" name="answer" value="{{ any_quiz.choise_1 }}" required> {{ any_quiz.choise_1 }}</label>
+                            <label><input type="radio" name="answer" value="{{ any_quiz.choise_2 }}"> {{ any_quiz.choise_2 }}</label>
+                            <label><input type="radio" name="answer" value="{{ any_quiz.choise_3 }}"> {{ any_quiz.choise_3 }}</label>
+                        </div>
+                        <button type="submit">Odeslat</button>
+                    </form>
