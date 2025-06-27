@@ -1,0 +1,56 @@
+.ranking-container {
+    background-color: #ffffff;
+    border: 2px solid #b2dfdb;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 105, 92, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.ranking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ranking-item {
+    margin-bottom: 14px;
+}
+
+.ranking-item a {
+    display: flex;
+    align-items: center;
+    background-color: #e0f7fa;
+    border: 1px solid #b2ebf2;
+    border-radius: 50px;            /* bublina */
+    padding: 16px 20px;
+    color: #00695c;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.15em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.ranking-item a:hover {
+    background-color: #b2dfdb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    color: #004d40;
+}
+
+.username {
+    flex-grow: 1;
+}
+
+.points {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #00796b;
+}
+
+.rank-number {
+    margin-right: 25px;
+}

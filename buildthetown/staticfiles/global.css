@@ -1,0 +1,267 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle at top, #e0f7fa 0%, #b2ebf2 60%, #b2dfdb 100%);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: #004d40;
+    line-height: 1.6;
+    align-items: center; /* Horizontální centrování obsahu */
+}
+
+main {
+    flex: 1 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 2. Hlavní wrapper pro obsah */
+.container {
+    max-width: 1400px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+
+/* 3. Stylování pro nadpis */
+h1 {
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #004d40;
+    font-size: 2.5em;
+}
+
+/* 4. Styl pro odstavce */
+p {
+    text-align: center;
+    font-size: 1.15em;
+    margin-bottom: 20px;
+    color: #00796b;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 5. Styl pro tabulky */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    box-shadow: 0 5px 20px rgba(44, 62, 80, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* 6. Styl pro hlavičku tabulky */
+thead {
+    background: #4dd0e1;
+    border-bottom: 3px solid #004d40;
+}
+
+thead th {
+    color: #004d40;
+    font-weight: 700;
+    padding: 18px 15px;
+    text-align: center;
+    font-size: 1.1em;
+    text-transform: uppercase;
+}
+
+/* 7. Styl pro řádky tabulky */
+tbody tr {
+    background: #e0f7fa;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 8. Efekt hover na řádky tabulky */
+tbody tr:hover {
+    background: #b2dfdb;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 9. Styl pro buňky tabulky */
+tbody td {
+    padding: 15px 10px;
+    text-align: center;
+    font-size: 1em;
+    color: #00695c;
+    vertical-align: middle;
+}
+
+/* 10. Styl pro responzivní tabulky s datovými popisky */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+        width: 100%;
+    }
+    thead tr {
+        display: none;
+    }
+    tbody tr {
+        margin-bottom: 20px;
+        border: 2px solid #01423a;
+        border-radius: 12px;
+        background: #b2ebf2;
+        padding: 15px;
+    }
+    tbody td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        font-size: 1em;
+        color: #004d40;
+        font-weight: 600;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-left: 0;
+        font-weight: 700;
+        text-align: left;
+        color: #00796b;
+        font-size: 0.9em;
+    }
+}
+
+/* 11. Styl pro obecná tlačítka */
+button {
+    background-color: #4dd0e1;
+    color: #004d40;
+    border: none;
+    padding: 12px 22px;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 1em;
+    box-shadow: 0 4px 10px rgba(0, 77, 64, 0.1);
+}
+
+button:hover {
+    background-color: #00796b;
+    color: #e0f7fa;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 77, 64, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 77, 64, 0.2);
+}
+
+/* 14. Styl pro zprávy */
+.messages-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 650px;
+    width: 100%;
+}
+
+.messages li {
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.messages .success {
+    background-color: #e6ffed;
+    color: #1a6d2b;
+    border: 1px solid #a3e0b2;
+}
+
+.messages .error {
+    background-color: #ffe6e8;
+    color: #9c2a39;
+    border: 1px solid #f2aeb4;
+}
+
+.messages .info {
+    background-color: #e0f8fc;
+    color: #1f6e7f;
+    border: 1px solid #a8e5ed;
+}
+
+.messages .warning {
+    background-color: #fff9e6;
+    color: #997e2b;
+    border: 1px solid #ffe8b2;
+}
+
+/* --- Patička --- */
+footer {
+    width: 100%;
+    background: #e0f7fa;
+    border-top: 2px solid #4dd0e1;
+    padding: 22px 0 10px 0;
+    text-align: center;
+    font-size: 1em;
+    color: #00695c;
+    margin-top: auto;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+}
+
+footer hr {
+    border: none;
+    border-top: 2px solid #b2ebf2;
+    margin-bottom: 18px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer a {
+    color: #009688;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #004d40;
+    text-decoration: underline;
+}

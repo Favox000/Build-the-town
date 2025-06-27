@@ -1,0 +1,37 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 77, 64, 0.08);
+    border: 1px solid #b2dfdb;
+}
+
+form input[type="text"],
+form input[name="code_name"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #b2dfdb;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #004d40;
+    background-color: #e0f7fa;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #00796b;
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.4);
+}
+
+form button {
+    align-self: center;
+}

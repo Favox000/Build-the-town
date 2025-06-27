@@ -1,0 +1,49 @@
+.chat-page {
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.chat-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #00796b;
+}
+
+.chat-page form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.chat-page input[type="text"] {
+    flex: 1;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.chat-page button {
+    background-color: #26a69a;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.chat-page button:hover {
+    background-color: #00796b;
+}
+
+.chat-messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+.chat-messages li {
+    background: #f0f0f0;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
